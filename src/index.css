@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme Color */
+.theme-color {
+    color: #264653; /* Deep Blue */
+  }
+  
+  /* Button Styles */
+  .btn-primary {
+    background-color: #2A9D8F; 
+    color: #fff; /* White text */
+  }
+  
+  .btn-primary:hover {
+    background-color: #1e7e70; /* Darker shade on hover */
+  }
+
+
+  .footer {
+    background-color: #333333; /* Dark Gray */
+  }
+ 
+  .footer .text-footer {
+    color: #ffffff; /* White */
+  }
+  
+    
