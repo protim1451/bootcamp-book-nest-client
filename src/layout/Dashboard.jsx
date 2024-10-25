@@ -5,11 +5,14 @@ import { IoAddCircle } from "react-icons/io5";
 import { MdCampaign, MdOutlinePets } from "react-icons/md";
 import { VscGitPullRequestGoToChanges } from "react-icons/vsc";
 import { NavLink, Outlet } from "react-router-dom";
-import Footer from "../pages/shared/Footer/Footer";
-import { DarkThemeToggle } from "flowbite-react";
-import useAuth from '../hooks/useAuth';
-import useAdmin from '../hooks/useAdmin';
+import { SiBookstack } from "react-icons/si";
+
+//import { DarkThemeToggle } from "flowbite-react";
+
+//import useAdmin from '../hooks/useAdmin';
 import { FaSackDollar } from 'react-icons/fa6';
+import Footer from '../pages/shared/Footer';
+import useAuth from '../Hook/useAuth';
 
 const Dashboard = () => {
     const { user } = useAuth();
@@ -23,13 +26,13 @@ const Dashboard = () => {
     // }, [user]);
 
     // console.log('user role', userRole);
-    const [isAdmin, isAdminLoading] = useAdmin();
-    console.log(isAdmin);
+    //const [isAdmin, isAdminLoading] = useAdmin();
+    //console.log(isAdmin);
     //const isAdmin = false;
 
-    if (!user) {
-        return <div>Loading...</div>;
-    }
+    // if (!user) {
+    //     return <div>Loading...</div>;
+    // }
 
     const handleSidebarToggle = () => {
         setSidebarOpen(!isSidebarOpen);
@@ -66,36 +69,36 @@ const Dashboard = () => {
                             </NavLink>
                         </li>
                         {
-                            isAdmin ?
-                                <>
-                                    <li>
-                                        <NavLink className="flex gap-1 items-center" to="/dashboard/adminHome">
-                                            <IoIosHome />Admin Home
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink className="flex gap-1 items-center" to="/dashboard/users">
-                                            <FaUsers></FaUsers>All Users
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink className="flex gap-1 items-center" to="/dashboard/allPet">
-                                            <MdOutlinePets />All Pets
-                                        </NavLink>
-                                    </li>
+                            // isAdmin ?
+                            //     <>
+                            //         <li>
+                            //             <NavLink className="flex gap-1 items-center" to="/dashboard/adminHome">
+                            //                 <IoIosHome />Admin Home
+                            //             </NavLink>
+                            //         </li>
+                            //         <li>
+                            //             <NavLink className="flex gap-1 items-center" to="/dashboard/users">
+                            //                 <FaUsers></FaUsers>All Users
+                            //             </NavLink>
+                            //         </li>
+                            //         <li>
+                            //             <NavLink className="flex gap-1 items-center" to="/dashboard/allPet">
+                            //                 <MdOutlinePets />All Pets
+                            //             </NavLink>
+                            //         </li>
 
-                                    <li>
-                                        <NavLink className="flex gap-1 items-center" to="/dashboard/allDonation">
-                                            <FaDollarSign />All Donation Campaigns
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink className="flex gap-1 items-center" to="/dashboard/donations">
-                                            <FaSackDollar />All Donations
-                                        </NavLink>
-                                    </li>
-                                </>
-                                :
+                            //         <li>
+                            //             <NavLink className="flex gap-1 items-center" to="/dashboard/allDonation">
+                            //                 <FaDollarSign />All Donation Campaigns
+                            //             </NavLink>
+                            //         </li>
+                            //         <li>
+                            //             <NavLink className="flex gap-1 items-center" to="/dashboard/donations">
+                            //                 <FaSackDollar />All Donations
+                            //             </NavLink>
+                            //         </li>
+                            //     </>
+                            //     :
                                 <>
                                     <li>
                                         <NavLink className="flex gap-1 items-center" to="/dashboard/userHome">
@@ -103,33 +106,18 @@ const Dashboard = () => {
                                         </NavLink>
                                     </li>
                                     <li>
-                                        <NavLink className="flex gap-1 items-center" to="/dashboard/addPet">
-                                            <IoAddCircle />Add a Pet
+                                        <NavLink className="flex gap-1 items-center" to="/dashboard/addbooks">
+                                            <IoAddCircle />Add a Book
                                         </NavLink>
                                     </li>
                                     <li>
-                                        <NavLink className="flex gap-1 items-center" to="/dashboard/myAddedPet">
-                                            <MdOutlinePets />My Added Pet
+                                        <NavLink className="flex gap-1 items-center" to="/dashboard/myaddedbooks">
+                                        <SiBookstack />My Added Books
                                         </NavLink>
                                     </li>
                                     <li>
-                                        <NavLink className="flex gap-1 items-center" to="/dashboard/adoption-requests">
-                                            <VscGitPullRequestGoToChanges />Adoption Request
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink className="flex gap-1 items-center" to="/dashboard/createDonationCampaign">
-                                            <MdCampaign />Create Donation Campaign
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink className="flex gap-1 items-center" to="/dashboard/myDonationCampaign">
-                                            <FaDollarSign />My Donation Campaign
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink className="flex gap-1 items-center" to="/dashboard/myDonation">
-                                            <FaDollarSign />My Donation
+                                        <NavLink className="flex gap-1 items-center" to="/dashboard/allbooks">
+                                        <SiBookstack />All Books
                                         </NavLink>
                                     </li>
                                 </>
@@ -155,10 +143,10 @@ const Dashboard = () => {
                 </div>
             </aside>
             <div className="p-4 sm:ml-64">
-                <div className="flex gap-1 items-center justify-center text-teal-500">
+                {/* <div className="flex gap-1 items-center justify-center text-teal-500">
                     <p>Toggle theme</p>
                     <DarkThemeToggle className="text-3xl"></DarkThemeToggle>
-                </div>
+                </div> */}
                 <Outlet />
                 <div className="mt-6 md:mt-12">
                     <Footer />

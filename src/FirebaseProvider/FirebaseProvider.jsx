@@ -29,12 +29,16 @@ const FirebaseProvider = ({children}) => {
         }
     }
 
-    function updateUserProfile(name, image) {
-        return updateProfile(auth.currentUser, {
-            displayName: name,
-            photoURL: image,
-        });
+    function updateUserProfile({ displayName, photoURL }) {
+        if (auth.currentUser) {
+            return updateProfile(auth.currentUser, {
+                displayName,
+                photoURL,
+            });
+        }
+        throw new Error("No user is currently signed in.");
     }
+    
 
     const signInUser = (email, password) => {
         setLoading(true);

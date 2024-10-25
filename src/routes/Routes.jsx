@@ -15,6 +15,8 @@ import CategoryPage from "../pages/CategoryPage/CategoryPage";
 import BookDetail from "../pages/BookDetail/BookDetail";
 import UpdateBookForm from "../pages/AllBooks/UpdateBookForm";
 import BorrowedBooks from "../pages/BorrowedBooks/BorrowedBooks";
+import Dashboard from "../layout/Dashboard";
+import UserHome from "../pages/Dashboard/UserHome/UserHome";
 
 const router = createBrowserRouter([
   {
@@ -76,6 +78,44 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: 'dashboard',
+    element: <PrivateRoute>
+      <Dashboard></Dashboard>
+    </PrivateRoute>,
+    children: [
+      
+      {
+        path: 'addbooks',
+        element: <PrivateRoute>
+          <AddBook></AddBook>
+        </PrivateRoute>,
+      },
+      {
+        path: 'myaddedbooks',
+        element: <PrivateRoute>
+          <MyAddedBooks></MyAddedBooks>
+        </PrivateRoute>,
+      },
+      {
+        path: 'allbooks',
+        element: <PrivateRoute><AllBooks></AllBooks></PrivateRoute>,
+      },
+      {
+        path: 'userHome',
+        element: <UserHome></UserHome>,
+      }
+      //Admin routes
+      // {
+      //   path: 'users',
+      //   element: <AllUsers></AllUsers>,
+      // },
+      // {
+      //   path: 'adminHome',
+      //   element: <AdminHome></AdminHome>,
+      // },
+    ]
+  }
 ]);
 
 export default router;
