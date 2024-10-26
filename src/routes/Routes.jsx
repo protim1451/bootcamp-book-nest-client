@@ -17,6 +17,10 @@ import UpdateBookForm from "../pages/AllBooks/UpdateBookForm";
 import BorrowedBooks from "../pages/BorrowedBooks/BorrowedBooks";
 import Dashboard from "../layout/Dashboard";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
+import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import AdminBooks from "../pages/Dashboard/AdminBook/AdminBooks";
+import UpdateBooksForm from "../pages/Dashboard/AdminBook/UpdateBooksForm";
 
 const router = createBrowserRouter([
   {
@@ -64,12 +68,12 @@ const router = createBrowserRouter([
           <BookDetail></BookDetail>
         </PrivateRoute>,
       },
-      {
-        path: '/update-book/:bookId',
-        element: <PrivateRoute>
-          <UpdateBookForm></UpdateBookForm>
-        </PrivateRoute>,
-      },
+      // {
+      //   path: '/update-book/:bookId',
+      //   element: <PrivateRoute>
+      //     <UpdateBookForm></UpdateBookForm>
+      //   </PrivateRoute>,
+      // },
       {
         path: '/borrowedbooks',
         element: <PrivateRoute>
@@ -109,15 +113,27 @@ const router = createBrowserRouter([
         path: 'borrowedbooks',
         element: <BorrowedBooks></BorrowedBooks>
       },
-      //Admin routes
-      // {
-      //   path: 'users',
-      //   element: <AllUsers></AllUsers>,
-      // },
-      // {
-      //   path: 'adminHome',
-      //   element: <AdminHome></AdminHome>,
-      // },
+     // Admin routes
+      {
+        path: 'users',
+        element: <AllUsers></AllUsers>,
+      },
+      {
+        path: 'adminHome',
+        element: <AdminHome></AdminHome>,
+      },
+      {
+        path: 'addbooks',
+        element: <AddBook></AddBook>
+      },
+      {
+        path: 'books',
+        element: <AdminBooks></AdminBooks>,
+      },
+      {
+        path: 'update-book/:bookId',
+        element: <UpdateBooksForm></UpdateBooksForm>,
+      },
     ]
   }
 ]);
