@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../../FirebaseProvider/FirebaseProvider";
@@ -14,6 +14,7 @@ const AddBook = () => {
         category: '',
         shortDescription: '',
         rating: '',
+        price: '',  // New price field
         userId: user ? user.uid : '',
         userName: user ? user.displayName : '',
         userEmail: user ? user.email : ''
@@ -22,19 +23,16 @@ const AddBook = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                //const response = await fetch('https://b9a11-server-side-protim1451.vercel.app/categories');
                 const response = await fetch('http://localhost:3000/categories');
                 if (!response.ok) {
                     throw new Error('Failed to fetch categories');
                 }
                 const data = await response.json();
-                console.log('Fetched categories:', data); // Debug log
                 setCategories(data);
             } catch (error) {
                 console.error('Error fetching categories:', error);
             }
         };
-
         fetchCategories();
     }, []);
 
@@ -48,7 +46,6 @@ const AddBook = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         const success = await submitFormDataToBackend(formData);
         if (success) {
             toast.success('Book added successfully');
@@ -60,6 +57,7 @@ const AddBook = () => {
                 category: '',
                 shortDescription: '',
                 rating: '',
+                price: '',  // Reset price
                 userId: user ? user.uid : '',
                 userName: user ? user.displayName : '',
                 userEmail: user ? user.email : ''
@@ -131,20 +129,18 @@ const AddBook = () => {
                     />
                 </div>
                 <div>
-                    <label className='font-bold'>
-                        Category:
-                        <select
-                            name="category"
-                            value={formData.category}
-                            onChange={handleChange}
-                            className="w-full border border-gray-300 rounded-md p-2"
-                        >
-                            <option value="">Select a category</option>
-                            {categories.map((category, index) => (
-                                <option key={index} value={category}>{category}</option>
-                            ))}
-                        </select>
-                    </label>
+                    <label className="block mb-1 font-bold">Category:</label>
+                    <select
+                        name="category"
+                        value={formData.category}
+                        onChange={handleChange}
+                        className="w-full border border-gray-300 rounded-md p-2"
+                    >
+                        <option value="">Select a category</option>
+                        {categories.map((category, index) => (
+                            <option key={index} value={category}>{category}</option>
+                        ))}
+                    </select>
                 </div>
                 <div>
                     <label className="block mb-1 font-bold">Short Description:</label>
@@ -170,6 +166,16 @@ const AddBook = () => {
                         <option value="4">4</option>
                         <option value="5">5</option>
                     </select>
+                </div>
+                <div>
+                    <label className="block mb-1 font-bold">Price:</label>
+                    <input
+                        type="number"
+                        name="price"
+                        value={formData.price}
+                        onChange={handleChange}
+                        className="w-full border border-gray-300 rounded-md p-2"
+                    />
                 </div>
 
                 <button

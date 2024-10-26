@@ -2,7 +2,7 @@ import Reveal from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 
 const BookCard = ({ book }) => {
-    const { _id, image, name, author, category, shortDescription, rating, quantity } = book;
+    const { _id, image, name, author, category, shortDescription, rating, quantity, price } = book;
 
     return (
        
@@ -20,6 +20,7 @@ const BookCard = ({ book }) => {
                             <div className="badge badge-outline">Author: {author}</div>
                             <div className="badge badge-outline">Rating: {rating}</div>
                             <div className="badge badge-outline">Quantity: {quantity}</div>
+                            <div className="badge badge-outline bg-orange-300">Price: {price}</div>
                         </div>
                         <div className="card-body">
                             <p>Added By: <small>{book.userName} ({book.userEmail})</small></p>

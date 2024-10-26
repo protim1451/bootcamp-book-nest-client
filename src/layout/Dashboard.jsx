@@ -105,14 +105,14 @@ const Dashboard = () => {
                                             <IoIosHome />User Home
                                         </NavLink>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                         <NavLink className="flex gap-1 items-center" to="/dashboard/addbooks">
                                             <IoAddCircle />Add a Book
                                         </NavLink>
-                                    </li>
+                                    </li> */}
                                     <li>
-                                        <NavLink className="flex gap-1 items-center" to="/dashboard/myaddedbooks">
-                                        <SiBookstack />My Added Books
+                                        <NavLink className="flex gap-1 items-center" to="/dashboard/borrowedbooks">
+                                        <SiBookstack />Books I bought
                                         </NavLink>
                                     </li>
                                     <li>

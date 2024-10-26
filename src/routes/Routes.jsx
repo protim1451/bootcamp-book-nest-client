@@ -104,7 +104,11 @@ const router = createBrowserRouter([
       {
         path: 'userHome',
         element: <UserHome></UserHome>,
-      }
+      },
+      {
+        path: 'borrowedbooks',
+        element: <BorrowedBooks></BorrowedBooks>
+      },
       //Admin routes
       // {
       //   path: 'users',

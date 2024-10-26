@@ -5,6 +5,7 @@ import BookCategory from './BookCategory';
 import FeaturedBooksSection from './FeaturedBooksSection';
 import Review from './Review';
 import FAQ from './Faq';
+import HowItWorks from './HowItWorks';
 
 const Home = () => {
     const [categories, setCategories] = useState([]);
@@ -31,6 +32,7 @@ const Home = () => {
         <div>
             <Helmet>BookNest || Homepage</Helmet>
             <Banner></Banner>
+            <HowItWorks></HowItWorks>
             <BookCategory categories={categories}></BookCategory>
             <FeaturedBooksSection></FeaturedBooksSection>
             <Review></Review>
