@@ -12,7 +12,7 @@ const UpdateBookForm = () => {
         const fetchBook = async () => {
             try {
                 //const response = await fetch(`https://b9a11-server-side-protim1451.vercel.app/books/${bookId}`);
-                const response = await fetch(`http://localhost:3000/books/${bookId}`);
+                const response = await fetch(`https://b9a11-server-side-protim1451.vercel.app/books/${bookId}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch book');
                 }
@@ -39,7 +39,7 @@ const UpdateBookForm = () => {
         console.log(`Updating book with ID: ${bookId}`, updatedBook);
 
         try {
-            const response = await fetch(`http://localhost:3000/books/${bookId}`, {
+            const response = await fetch(`https://b9a11-server-side-protim1451.vercel.app/books/${bookId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

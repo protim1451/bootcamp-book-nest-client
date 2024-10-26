@@ -60,7 +60,7 @@ const router = createBrowserRouter([
         path: '/category/:category',
         element: <CategoryPage></CategoryPage>,
         //loader: ({ params }) => fetch(`https://b9a11-server-side-protim1451.vercel.app/books/category/${params.category}`),
-        loader: ({ params }) => fetch(`http://localhost:3000/books/category/${params.category}`),
+        loader: ({ params }) => fetch(`https://b9a11-server-side-protim1451.vercel.app/books/category/${params.category}`),
       },
       {
         path: "/book/:id",
@@ -68,12 +68,6 @@ const router = createBrowserRouter([
           <BookDetail></BookDetail>
         </PrivateRoute>,
       },
-      // {
-      //   path: '/update-book/:bookId',
-      //   element: <PrivateRoute>
-      //     <UpdateBookForm></UpdateBookForm>
-      //   </PrivateRoute>,
-      // },
       {
         path: '/borrowedbooks',
         element: <PrivateRoute>

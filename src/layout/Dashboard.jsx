@@ -7,6 +7,8 @@ import { SiBookstack } from "react-icons/si";
 import Footer from '../pages/shared/Footer';
 import useAuth from '../Hook/useAuth';
 import useAdmin from '../Hook/useAdmin';
+import { PiBooksFill } from "react-icons/pi";
+import { IoIosAddCircle } from "react-icons/io";
 
 const Dashboard = () => {
     const { user } = useAuth();
@@ -59,12 +61,12 @@ const Dashboard = () => {
                                     </li>
                                     <li>
                                         <NavLink className="flex gap-1 items-center" to="/dashboard/addbooks">
-                                            <FaUsers />Add Books
+                                        <IoIosAddCircle />Add Books
                                         </NavLink>
                                     </li>
                                     <li>
                                         <NavLink className="flex gap-1 items-center" to="/dashboard/books">
-                                            <FaUsers />Books
+                                        <PiBooksFill />Books
                                         </NavLink>
                                     </li>
                                 </>

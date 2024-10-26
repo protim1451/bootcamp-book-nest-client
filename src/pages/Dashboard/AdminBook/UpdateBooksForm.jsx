@@ -11,7 +11,7 @@ const UpdateBooksForm = () => {
     useEffect(() => {
         const fetchBook = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/books/${bookId}`);
+                const response = await fetch(`https://b9a11-server-side-protim1451.vercel.app/books/${bookId}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch book');
                 }
@@ -24,7 +24,7 @@ const UpdateBooksForm = () => {
                     text: 'Failed to fetch the book details.',
                     icon: 'error',
                     confirmButtonText: 'OK'
-                }).then(() => navigate('/admin/books')); // Redirect on error
+                }).then(() => navigate('/dashboard/books')); // Redirect on error
             }
         };
 
@@ -41,31 +41,31 @@ const UpdateBooksForm = () => {
             rating: e.target.rating.value,
             price: e.target.price.value
         };
-
+    
         console.log(`Updating book with ID: ${bookId}`, updatedBook);
-
+    
         try {
-            const response = await fetch(`http://localhost:3000/books/${bookId}`, {
+            const response = await fetch(`https://b9a11-server-side-protim1451.vercel.app/books/${bookId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(updatedBook)
             });
-
+    
             if (!response.ok) {
                 const errorText = await response.text();
                 console.error('Server response:', errorText);
                 throw new Error('Failed to update book');
             }
-
+    
             Swal.fire({
                 title: 'Success!',
                 text: 'The book has been updated successfully.',
                 icon: 'success',
                 confirmButtonText: 'OK'
             }).then(() => {
-                navigate('/admin/books'); // Redirect to books list after update
+                navigate('/dashboard/books'); //
             });
         } catch (error) {
             console.error('Error updating book:', error);
@@ -143,6 +143,17 @@ const UpdateBooksForm = () => {
                             min="0"
                             max="5"
                             step="0.1"
+                            className="w-full px-3 py-2 border rounded-md"
+                            required
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label className="block text-gray-700">Price:</label>
+                        <input
+                            type="number"
+                            name="price"
+                            defaultValue={book.price}
+                            step="1"
                             className="w-full px-3 py-2 border rounded-md"
                             required
                         />

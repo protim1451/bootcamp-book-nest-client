@@ -17,7 +17,7 @@ const MyAddedBooks = () => {
                     return;
                 }
 
-                const response = await fetch(`http://localhost:3000/books?userEmail=${user.email}`);
+                const response = await fetch(`https://b9a11-server-side-protim1451.vercel.app/books?userEmail=${user.email}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch user books');
                 }
@@ -35,7 +35,7 @@ const MyAddedBooks = () => {
 
     const handleDeleteBook = async (bookId) => {
         try {
-            const response = await fetch(`http://localhost:3000/books/${bookId}`, {
+            const response = await fetch(`https://b9a11-server-side-protim1451.vercel.app/books/${bookId}`, {
                 method: 'DELETE'
             });
             if (response.ok) {

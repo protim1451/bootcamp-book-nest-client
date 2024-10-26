@@ -11,7 +11,7 @@ const CategoryPage = () => {
             try {
                 console.log(`Fetching books for category: ${category}`);
                 //const response = await fetch(`https://b9a11-server-side-protim1451.vercel.app/books/category/${category}`);
-                const response = await fetch(`http://localhost:3000/books/category/${category}`);
+                const response = await fetch(`https://b9a11-server-side-protim1451.vercel.app/books/category/${category}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch books by category');
                 }

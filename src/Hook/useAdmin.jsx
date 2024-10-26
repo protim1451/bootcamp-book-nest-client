@@ -12,7 +12,7 @@ const useAdmin = () => {
         const fetchAdminStatus = async () => {
             if (!loading && user) {
                 try {
-                    const res = await axios.get(`http://localhost:3000/user/admin/${user.email}`);
+                    const res = await axios.get(`https://b9a11-server-side-protim1451.vercel.app/user/admin/${user.email}`);
                     setIsAdmin(res.data?.admin);
                 } catch (error) {
                     console.error("Error fetching admin status:", error);

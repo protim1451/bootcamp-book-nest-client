@@ -10,15 +10,15 @@ const AdminHome = () => {
         const fetchData = async () => {
             try {
                 // Fetch total users
-                const usersResponse = await axios.get('http://localhost:3000/user');
+                const usersResponse = await axios.get('https://b9a11-server-side-protim1451.vercel.app/user');
                 setTotalUsers(usersResponse.data.length);
 
                 // Fetch total books
-                const booksResponse = await axios.get('http://localhost:3000/books');
+                const booksResponse = await axios.get('https://b9a11-server-side-protim1451.vercel.app/books');
                 setTotalBooks(booksResponse.data.length);
 
                 // Fetch total books bought
-                const boughtResponse = await axios.get('http://localhost:3000/borrow'); // Update this URL to your actual endpoint
+                const boughtResponse = await axios.get('https://b9a11-server-side-protim1451.vercel.app/borrow'); // Update this URL to your actual endpoint
                 setTotalBooksBought(boughtResponse.data.length); // Adjust based on your API response structure
 
             } catch (error) {

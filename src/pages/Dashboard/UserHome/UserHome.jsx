@@ -13,7 +13,7 @@ const UserHome = () => {
     useEffect(() => {
         const fetchTotalBooks = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/borrowed/${user.email}`);
+                const response = await fetch(`https://b9a11-server-side-protim1451.vercel.app/borrowed/${user.email}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch total books');
                 }

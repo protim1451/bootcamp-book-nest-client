@@ -11,7 +11,7 @@ const BorrowedBooks = () => {
     useEffect(() => {
         const fetchBorrowedBooks = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/borrowed/${user.email}`);
+                const response = await fetch(`https://b9a11-server-side-protim1451.vercel.app/borrowed/${user.email}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch borrowed books');
                 }
@@ -31,7 +31,7 @@ const BorrowedBooks = () => {
 
     const handleReturn = async (bookId) => {
         try {
-            const response = await fetch('http://localhost:3000/return', {
+            const response = await fetch('https://b9a11-server-side-protim1451.vercel.app/return', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

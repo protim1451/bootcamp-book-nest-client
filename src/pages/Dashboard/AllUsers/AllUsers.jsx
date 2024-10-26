@@ -10,7 +10,7 @@ const AllUsers = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const res = await axios.get('http://localhost:3000/user');
+                const res = await axios.get('https://b9a11-server-side-protim1451.vercel.app/user');
                 setUsers(res.data);
             } catch (error) {
                 console.error("Error fetching users:", error);
@@ -23,7 +23,7 @@ const AllUsers = () => {
     // Handle making a user admin
     const handleMakeAdmin = async (user) => {
         try {
-            const res = await axios.patch(`http://localhost:3000/user/admin/${user._id}`);
+            const res = await axios.patch(`https://b9a11-server-side-protim1451.vercel.app/user/admin/${user._id}`);
             if (res.data.modifiedCount > 0) {
                 setUsers(users.map(u => u._id === user._id ? { ...u, role: 'admin' } : u));
                 Swal.fire({
@@ -52,7 +52,7 @@ const AllUsers = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    const res = await axios.delete(`http://localhost:3000/user/${user._id}`);
+                    const res = await axios.delete(`https://b9a11-server-side-protim1451.vercel.app/user/${user._id}`);
                     if (res.data.deletedCount > 0) {
                         setUsers(users.filter(u => u._id !== user._id));
                         Swal.fire("Deleted!", "User has been deleted.", "success");

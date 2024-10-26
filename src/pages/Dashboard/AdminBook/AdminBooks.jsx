@@ -10,7 +10,7 @@ const AdminBooks = () => {
     useEffect(() => {
         const fetchBooks = async () => {
             try {
-                const response = await fetch('http://localhost:3000/books'); // Fetch all books
+                const response = await fetch('https://b9a11-server-side-protim1451.vercel.app/books'); // Fetch all books
                 if (!response.ok) {
                     throw new Error('Failed to fetch books');
                 }
@@ -26,7 +26,7 @@ const AdminBooks = () => {
 
     const handleDeleteBook = async (bookId) => {
         try {
-            const response = await fetch(`http://localhost:3000/books/${bookId}`, {
+            const response = await fetch(`https://b9a11-server-side-protim1451.vercel.app/books/${bookId}`, {
                 method: 'DELETE'
             });
             if (response.ok) {
@@ -68,7 +68,7 @@ const AdminBooks = () => {
     };
 
     const handleUpdateBook = (bookId) => {
-        navigate(`/update-book/${bookId}`);
+        navigate(`/dashboard/update-book/${bookId}`);
     };
 
     return (
